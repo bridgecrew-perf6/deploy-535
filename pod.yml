@@ -2,11 +2,12 @@ apiVersion: v1
 kind: apiVersion: v1
 kind: Pod
 metadata:
-    name: sample-pod
-    labels:
-      name: myapp
+  name: sample-pod
+  labels:
+    zone: prod
+    version: v1
 spec:
-    container:
+    containers:
     - name: sample-ctr
       image: saikiranreddy1808/deploy:v1
       ports:
