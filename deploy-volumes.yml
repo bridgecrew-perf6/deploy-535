@@ -14,6 +14,10 @@ spec:
        labels:
           app: app-v1
     spec:
+      volumes:
+      - name: pv-storage
+        persistentVolumeClaim:
+          claimName: test-pvc
       containers:
       - name: sample-ctr
         image: saikiranreddy1808/deploy:v1
@@ -28,5 +32,8 @@ spec:
         - name: USER_PASS
           valueFrom:
             secretKeyRef:
-               name: mysecret
-               key: password  
+                  name: mysecret
+                  key: password
+        volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: pv-storage
